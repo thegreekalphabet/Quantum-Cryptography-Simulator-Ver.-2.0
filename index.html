@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Cryptography Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Quantum Crypto</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#encoder">Encoder</a></li>
+                <li><a href="#decoder">Decoder</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Quantum Cryptography Simulator</h1>
+            <p>Experience the future of secure communication through quantum principles</p>
+        </section>
+
+        <section id="how-it-works" class="concept-section">
+            <h2>Understanding Quantum Cryptography</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>What is Quantum Cryptography?</h3>
+                    <p>Quantum cryptography uses the principles of quantum mechanics to provide unbreakable encryption. Unlike classical cryptography, which relies on mathematical complexity, quantum cryptography's security is guaranteed by the laws of physics themselves.</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>The BB84 Protocol</h3>
+                    <p>Our simulator implements the BB84 protocol, the first quantum cryptography protocol, which uses quantum properties of photons to generate a secure encryption key between two parties (traditionally called Alice and Bob).</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>Quantum Properties</h3>
+                    <p>We use two quantum properties: superposition (a particle existing in multiple states simultaneously) and the uncertainty principle (measuring one property affects other properties). These make it impossible for an eavesdropper to intercept the communication without being detected.</p>
+                </div>
+            </div>
+
+            <div class="process-explanation">
+                <h2>How Our Encryption Works</h2>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <h3>1. Quantum State Preparation</h3>
+                        <p>The sender (Alice) prepares qubits in random quantum states using two different bases:</p>
+                        <ul>
+                            <li>Rectilinear Basis (↑↓): Represents 0 and 1</li>
+                            <li>Diagonal Basis (↗↙): Represents + and -</li>
+                        </ul>
+                    </div>
+
+                    <div class="step">
+                        <h3>2. Quantum Transmission</h3>
+                        <p>The receiver (Bob) measures each qubit using randomly chosen bases. Due to quantum mechanics:</p>
+                        <ul>
+                            <li>Correct basis: Measurement gives correct value</li>
+                            <li>Wrong basis: Measurement gives random result</li>
+                        </ul>
+                    </div>
+
+                    <div class="step">
+                        <h3>3. Key Sifting</h3>
+                        <p>Alice and Bob:</p>
+                        <ul>
+                            <li>Compare their chosen bases publicly</li>
+                            <li>Keep only the bits where they used the same basis</li>
+                            <li>These matching bits become their shared secret key</li>
+                        </ul>
+                    </div>
+
+                    <div class="step">
+                        <h3>4. Message Encryption</h3>
+                        <p>The final steps:</p>
+                        <ul>
+                            <li>Message is converted to binary</li>
+                            <li>Secret key is used to encrypt the binary message</li>
+                            <li>Same key is used for decryption at the other end</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-features">
+                <h2>Security Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Eavesdropper Detection</h3>
+                        <p>Any attempt to intercept the quantum transmission will disturb the quantum states, making the interference detectable.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Perfect Forward Secrecy</h3>
+                        <p>Each communication session uses a new random key, ensuring that compromising one message doesn't affect others.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Quantum-Safe</h3>
+                        <p>The security relies on fundamental physics, making it immune to advances in computational power, including quantum computers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="encoder" class="crypto-section">
+            <h2>Message Encoder</h2>
+            <div class="input-area">
+                <textarea id="plaintext" placeholder="Enter your message to encrypt"></textarea>
+                <button id="encode-btn" class="action-btn">Encode Message</button>
+            </div>
+            <div class="visualization">
+                <div id="quantum-states"></div>
+                <div id="basis-choice"></div>
+                <div id="measurement"></div>
+            </div>
+            <div class="output-area">
+                <h3>Encrypted Result</h3>
+                <div id="encrypted-output" class="output-box"></div>
+                <div id="key-output" class="output-box"></div>
+            </div>
+        </section>
+
+        <section id="decoder" class="crypto-section">
+            <h2>Message Decoder</h2>
+            <div class="input-area">
+                <textarea id="encrypted-input" placeholder="Enter the encrypted message"></textarea>
+                <input type="text" id="key-input" placeholder="Enter the quantum key">
+                <button id="decode-btn" class="action-btn">Decode Message</button>
+            </div>
+            <div class="visualization">
+                <div id="decoding-process"></div>
+            </div>
+            <div class="output-area">
+                <h3>Decrypted Result</h3>
+                <div id="decrypted-output" class="output-box"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About This Project</h4>
+                <p>An educational tool demonstrating quantum cryptography principles</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <a href="https://en.wikipedia.org/wiki/BB84" target="_blank">BB84 Protocol</a>
+                <a href="https://en.wikipedia.org/wiki/Quantum_cryptography" target="_blank">Quantum Cryptography</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Quantum Crypto Simulator. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
